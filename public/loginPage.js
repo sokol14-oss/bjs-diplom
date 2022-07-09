@@ -1,20 +1,24 @@
+"use strict";
 const { response } = require("express");
-
-Use String;
 const userForm = new UserForm();
 userForm.loginFormCallback = (data) => {
-    ApiConnector.login(data,callback);
-    ApiConnector.login(data,response=>console.log(response));
-if(response.succes =true){
-    location.reload();
-}
-else{
-    catch(e) {
-        this.loginErrorMessageBox= "Неверный логин или пароль";
+    ApiConnector.login(data,(response)) => {
+        if(response.succes =true){
+            location.reload();
+        }
+        else{
+            setLoginErrorMessage(message);
     }
 }
 }
-userForm.registerFormCallback = (data)=>{
-    ApiConnector.registerFormCallback(data,callback);
-    location.reload();
+userForm.registerFormCallback = (data)=> {
+    ApiConnector.registerFormCallback(data,(response)) => {
+        if(response.succes =true){
+            location.reload();
+        }
+        else{
+            setRegisterErrorMessage(message);
+    }
+}
+    
 }
